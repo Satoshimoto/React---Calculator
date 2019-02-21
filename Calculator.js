@@ -1,14 +1,9 @@
 const Buttons = props => {
-  return ( <
-    button onClick = {
-      props.onClick
-    }
-    className = {
-      props.className
-    } > {
-      props.number
-    } <
-    /button>
+  return (
+    <button onClick={props.onClick} className={props.className}>
+      {" "}
+      {props.number}{" "}
+    </button>
   );
 };
 
@@ -22,7 +17,8 @@ class Calculator extends React.Component {
     showResult: ""
   };
 
-  buttons = [{
+  buttons = [
+    {
       id: 0,
       number: "C"
     },
@@ -235,41 +231,32 @@ class Calculator extends React.Component {
 
   render() {
     const button = this.buttons.map(button => {
-      return ( <
-        Buttons id = {
-          button.id
-        }
-        number = {
-          button.number
-        }
-        className = {
-          button.id === 0 || button.id === 15 ?
-          "btn btnZero" :
-            button.id === 17 ||
-            button.id === 14 ||
-            button.id === 10 ||
-            button.id === 6 ||
-            button.id === 2 ?
-            "btn colorfullButton" :
-            "btn"
-        }
-        onClick = {
-          this.handleClickNumber.bind(this, button)
-        }
+      return (
+        <Buttons
+          id={button.id}
+          number={button.number}
+          className={
+            button.id === 0 || button.id === 15
+              ? "btn btnZero"
+              : button.id === 17 ||
+                button.id === 14 ||
+                button.id === 10 ||
+                button.id === 6 ||
+                button.id === 2
+              ? "btn colorfullButton"
+              : "btn"
+          }
+          onClick={this.handleClickNumber.bind(this, button)}
         />
       );
     });
-    return ( <
-      >
-      <
-      div className = "inputCalculator" > {
-        this.state.showResult
-      } < /div> {
-        button
-      } <
-      />
+    return (
+      <>
+        <div className="inputCalculator"> {this.state.showResult} </div>{" "}
+        {button}{" "}
+      </>
     );
   }
 }
 
-ReactDOM.render( < Calculator / > , document.getElementById("root"));
+ReactDOM.render(<Calculator />, document.getElementById("root"));
