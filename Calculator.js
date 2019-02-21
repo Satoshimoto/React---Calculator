@@ -1,8 +1,7 @@
 const Buttons = props => {
   return (
     <button onClick={props.onClick} className={props.className}>
-      {" "}
-      {props.number}{" "}
+      {props.number}
     </button>
   );
 };
@@ -252,8 +251,8 @@ class Calculator extends React.Component {
     });
     return (
       <>
-        <div className="inputCalculator"> {this.state.showResult} </div>{" "}
-        {button}{" "}
+        <div className="inputCalculator"> {this.state.showResult} </div>
+        {button}
       </>
     );
   }
